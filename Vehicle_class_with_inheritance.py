@@ -1,6 +1,8 @@
 
 
+from cmath import pi
 from turtle import speed
+import math
 
 
 class Vehicle():
@@ -48,3 +50,6 @@ mtc.Driving(45)
 
 mtc = Motorcycle("electric", False)
 mtc.Driving(45)
+
+print("the square root of 16 is ", math.sqrt(16))
+print("Print pi", pi)
