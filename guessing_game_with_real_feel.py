@@ -1,11 +1,16 @@
 
 import random
 
-user_guess = int (input("Guess a number: "))
-number = random.randint(1,100)
-print(number)
+import time
+
+user_guess = int (input("Guess a number between 1 - 10: "))
+time.sleep(3)
+print("Picking a random number")
+number = random.randint(1,10)
+# print(number)
 
 while user_guess != number:
+    
     if user_guess > number:
         user_guess = int (input("please guess a lower number: "))
     else:
