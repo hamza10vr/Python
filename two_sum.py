@@ -24,3 +24,21 @@ print(answer)
 answer = two_sum(arr2, target2)
 print(answer)
 
+
+
+complementaryMap = dict()
+
+
+def f1(lis, targ):
+    for i in range (len(lis)):
+        complement = targ -lis[i]
+        num = lis[i]
+        if num in complementaryMap:
+            return [complementaryMap[num],i]
+        else:
+            complementaryMap[complement] = i
+
+cm = f1([1,2,5,6,8,9],10)
+print(cm)
+
+
