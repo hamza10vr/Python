@@ -18,7 +18,6 @@ def two_sum( nums, target) :
                 return [i, j]
     return []
 
-# answer=[]
 answer = two_sum(arr1, target1)
 print(answer)
 
