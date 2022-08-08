@@ -3,11 +3,9 @@
 # Round the results to 2 decimal places.
 
 print("Welcome to the tip calculator.")
-bill = input("What was the total bill? $")
-tip_percentage = input("What percentage tip would you like to give ? 10, 12, or 15? ")
-num_people = input("How many people to split the bill? ")
-
-tip = 1+ (int(tip_percentage) /100)
-total_bill = float(bill) * tip
-per_person = float(round(total_bill/int(num_people),2))
-print(f"Each person should pay:${per_person}" )
+bill = float(input("What was the total bill? $"))
+tip = int(input("What percentage tip would you like to give ? 10, 12, or 15? "))
+people = int(input("How many people to split the bill? "))
+bill_with_tip = tip /100 * bill + bill
+bill_per_person = round((bill_with_tip / people),2)
+print(bill_per_person)
