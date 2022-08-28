@@ -6,12 +6,10 @@ for n in range(0, len(student_heights)):
 
 
 len = 0
-sum = 0
+total_height = 0
 
-for st_height in student_heights:
+for height  in student_heights:
     len +=1
-    sum += st_height
+    total_height += height
 
-print(len)
-print(sum)
-print(round(sum/len))
+print(f"Average height is = {round(total_height/len)}")
