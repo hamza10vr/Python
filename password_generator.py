@@ -11,19 +11,18 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 #Eazy Level - Order not randomised:
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
-pass_letter =" "
-pass_symbol = ""
-pass_number= ""
+password = ""
 
 for _ in range(nr_letters):
-    pass_letter += random.choice(letters)
+    password += random.choice(letters)
 for _ in range(nr_symbols):
-    pass_symbol +=random.choice(symbols)
+    password +=random.choice(symbols)
 for _ in range(nr_numbers):
-    pass_number +=random.choice(numbers)
+    password +=random.choice(numbers)
 
-password = pass_letter+pass_symbol+pass_number
-print(f"password is = {password}")
+# password = pass_letter+pass_symbol+pass_number
+print("easy password")
+print(password)
 
 
 
