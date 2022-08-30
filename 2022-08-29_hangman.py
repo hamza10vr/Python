@@ -11,5 +11,8 @@ print(chosen_word)
 guess = input("Guess a letter: ").lower()
 
 # check if the letter the user guessed (guess) is one of the leters in the chosen_word)
-if guess in chosen_word:
-    print("YES!")
+for letter in chosen_word:
+    if guess in chosen_word:
+        print("Right!")
+    else:
+        print("wrong")
