@@ -71,7 +71,6 @@ print(chosen_word)
 display = []
 for _ in range(len(chosen_word)):
     display += "_"
-print(display)
 
 # ask the user to guess a letter and assign their answer to a variable called gess. Make guess lowercase
 
@@ -84,17 +83,18 @@ while not end_of_game: # while ends with False, while not ends with True
     # and replace the blank list if it matches
     if guess not in chosen_word:
         lives -=1 
-        print(display)
+        # print(display)
 
         print(stages[lives])
-        if lives < 0:
-            print("You loose")    
-            end_of_game = True 
+        if lives == 0:   
+            end_of_game = True
+            print("You loose")  
     else:
         for index, letter in enumerate(chosen_word):
             if letter == guess:
                 display[index] = guess
-        print(display)
+
+    print(f"{' '.join(display)}")  
 
     
 
@@ -102,7 +102,7 @@ while not end_of_game: # while ends with False, while not ends with True
         end_of_game = True
         print("You Win!!!")
  
-                 
+    print(stages[lives])            
         
         
 
