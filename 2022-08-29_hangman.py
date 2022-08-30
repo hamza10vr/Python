@@ -15,16 +15,19 @@ for _ in range(len(chosen_word)):
 print(display)
 
 # ask the user to guess a letter and assign their answer to a variable called gess. Make guess lowercase
-guess = input("Guess a letter: ").lower()
+while "_" in display:
 
-# check if the letter the user guessed (guess) is one of the leters in the chosen_word
-# and replace the blank list if it matches
-for index, letter in enumerate(chosen_word):
-    if letter == guess:
-        print("Right!")
-        display[index] = guess       
-    else:
-        print("Wrong")
+    guess = input("Guess a letter: ").lower()
+
+    # check if the letter the user guessed (guess) is one of the leters in the chosen_word
+    # and replace the blank list if it matches
+    for index, letter in enumerate(chosen_word):
+        if letter == guess:
+            print("Right!")
+            display[index] = guess       
+        else:
+            print("Wrong")
+    print(display)
 
 ##### another way to do the above  #########
 # for position in range(len(chosen_word)):
@@ -32,4 +35,3 @@ for index, letter in enumerate(chosen_word):
 #     if letter == guess:
 #         display[position] = letter
 
-print(display)
