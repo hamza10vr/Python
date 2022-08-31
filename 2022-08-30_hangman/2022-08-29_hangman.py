@@ -7,30 +7,37 @@ import hangman_words as words
 
 lives = 6
 
+# importing the logo
+print(art.logo)
+
 # Randomly choose a word fromt eh word_list and assign it to a variable called chosed_word.
 chosen_word = random.choice(words.word_list)
-print(chosen_word)
+print(f"Pssst, the solution is {chosen_word}")
 
 #create blank string equivalent to the lenght of the chosen_word
 display = []
 for _ in range(len(chosen_word)):
     display += "_"
 
-# ask the user to guess a letter and assign their answer to a variable called gess. Make guess lowercase
-
 end_of_game = False
+letter_already_guessed = []
+
 while not end_of_game: # while ends with False, while not ends with True
 
     guess = input("Guess a letter: ").lower()
+    
 
-    # check if the letter the user guessed (guess) is one of the leters in the chosen_word
-    # and replace the blank list if it matches
     if guess not in chosen_word:
+        print(f"You guessed a letter {guess}, that's not in the word. You lose a life")
         lives -=1 
         if lives == 0:   
             end_of_game = True
             print("You loose")  
     else:
+        if guess not in letter_already_guessed:
+            letter_already_guessed.append(guess)
+        else:
+            print(f"You've already guessed {guess}")
         for index, letter in enumerate(chosen_word):
             if letter == guess:
                 display[index] = guess
