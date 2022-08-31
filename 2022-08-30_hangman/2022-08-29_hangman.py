@@ -1,17 +1,17 @@
 # hangman game
 # steps:
 import random
-import hangman_art as art
-import hangman_words as words
+from  hangman_art import logo, stages
+from hangman_words import word_list
 
 
 lives = 6
 
 # importing the logo
-print(art.logo)
+print(logo)
 
 # Randomly choose a word fromt eh word_list and assign it to a variable called chosed_word.
-chosen_word = random.choice(words.word_list)
+chosen_word = random.choice(word_list)
 print(f"Pssst, the solution is {chosen_word}")
 
 #create blank string equivalent to the lenght of the chosen_word
@@ -50,22 +50,7 @@ while not end_of_game: # while ends with False, while not ends with True
         end_of_game = True
         print("You Win!!!")
  
-    print(art.stages[lives])            
-        
-        
-
-
-    #     if end_of_game == True:
-    #         break
-    # print(display)
-
-            # print(display)
-# if "_" not in display:
-#     end_of_game = True
-#     print("You Win!!!")
-    # if "_" not in display:
-    #     end_of_game = True
-    #     print("You Win!!!")
+    print(stages[lives])            
 
 ##### another way to do the above  #########
 # for position in range(len(chosen_word)):
