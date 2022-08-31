@@ -20,7 +20,6 @@ for _ in range(len(chosen_word)):
     display += "_"
 
 end_of_game = False
-letter_already_guessed = []
 
 while not end_of_game: # while ends with False, while not ends with True
 
@@ -34,10 +33,9 @@ while not end_of_game: # while ends with False, while not ends with True
             end_of_game = True
             print("You loose")  
     else:
-        if guess not in letter_already_guessed:
-            letter_already_guessed.append(guess)
-        else:
+        if guess in display:
             print(f"You've already guessed {guess}")
+
         for index, letter in enumerate(chosen_word):
             if letter == guess:
                 display[index] = guess
