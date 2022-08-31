@@ -1,70 +1,14 @@
 # hangman game
 # steps:
 import random
-from re import A
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+import hangman_art as art
+import hangman_words as words
 
 
-word_list = ["ardvark", "baboon", "camel"]
 lives = 6
 
 # Randomly choose a word fromt eh word_list and assign it to a variable called chosed_word.
-chosen_word = random.choice(word_list)
+chosen_word = random.choice(words.word_list)
 print(chosen_word)
 
 #create blank string equivalent to the lenght of the chosen_word
@@ -83,9 +27,6 @@ while not end_of_game: # while ends with False, while not ends with True
     # and replace the blank list if it matches
     if guess not in chosen_word:
         lives -=1 
-        # print(display)
-
-        print(stages[lives])
         if lives == 0:   
             end_of_game = True
             print("You loose")  
@@ -102,7 +43,7 @@ while not end_of_game: # while ends with False, while not ends with True
         end_of_game = True
         print("You Win!!!")
  
-    print(stages[lives])            
+    print(art.stages[lives])            
         
         
 
