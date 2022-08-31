@@ -1,0 +1,12 @@
+aaa.txt
+#.gitignore
+# undo staging back to not tracked
+# git rm --cached -r
+
+###### merging
+#git checkout master
+#git merge branchName
+#vim , leave empty
+#git branch has all the changes
+#git push -u origin master 
+#git push -u origin new_branch
