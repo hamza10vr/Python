@@ -22,8 +22,11 @@ def encrypt(message, shift_number):
     encrypted_message = ''
 
     for _ in range(shift):
-        # shifted_alphabets.append(shifted_alphabets.pop(0))
-        shifted_alphabets.insert(0,(shifted_alphabets.pop()))
+        shifted_alphabets.append(shifted_alphabets.pop(0))  # remove element from the front and add it to the back
+
+        ############# decrypt ############
+        # shifted_alphabets.insert(0,(shifted_alphabets.pop())) # remove last element and add it to the front / for decryption
+
     print(shifted_alphabets)
     message_index = [] 
     for char in message:
