@@ -4,7 +4,7 @@
 
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-shifted_alphabets = list(alphabet)
+
 # direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 # text = input("Type your message:\n").lower()
 # shift = int(input("Type the shift number:\n"))
@@ -21,6 +21,8 @@ def encrypt(message, shift_number):
     #cipher_text = "mjqqt"
     #print output: "The encoded text is mjqqt"
 
+############################ METHOD 1 #######################################
+    shifted_alphabets = list(alphabet)
     cipher_text = ''
 
     for _ in range(shift):
@@ -41,9 +43,26 @@ def encrypt(message, shift_number):
             cipher_text += char
 
     # print(message_index)  # for debugging 
+###############################  METHOD 2    ####################################################
+    # cipher_text = ''
 
+    # alphabet_length = len(alphabet)
+    # for char in message:
+    #     if char in alphabet:
+    #         position = alphabet.index(char)  # .index() give the first occurance
+    #         new_position = position + shift_number
+    #         print(new_position)
+    #         # cipher_text += shifted_alphabets[position]
+    #         if new_position >= alphabet_length:
+    #             new_position = (alphabet_length-new_position)
+    #             cipher_text += alphabet[new_position]
+    #         else:
+    #              cipher_text += alphabet[new_position]
+    #     else:
+    #         cipher_text += char
 
-    
+    # # print(message_index)  # for debugging 
+######################################################################################    
     print(cipher_text)
     ##HINT: How do you get the index of an item in a list:
     #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
