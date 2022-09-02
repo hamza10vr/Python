@@ -16,17 +16,24 @@ logo = '''
 
 print(logo)
 print("Welcome to the secret auction program")
-name = input("What is your name ?:" )
-bid = input("What is your bid?: ")
+
+stop_bidding = False
+bidding_enteries = {}
 
 
-sleep(2)
+while not stop_bidding:
+    name = input("What is your name ?:" )
+    bid = int(input("What is your bid?: "))
+    bidding_enteries[name] = bid
 
-os.system('cls')
 
-name = input("What is your name?:" )
-bid = input("What is your bid?: ")
+    more_user = (input("Are there any other bidders? Type 'yes' or 'no'. ")).lower()
+    if more_user == 'no':
+        stop_bidding = True
 
-stop_bidding = (input("Are there any other bidders? Type 'yes' or 'no'. ")).lower()
+    sleep(1)
+    os.system('cls')
 
-print(f"The winner is {} with a bid of ${}.")
+
+print(bidding_enteries)
+# print(f"The winner is {} with a bid of ${}.")
