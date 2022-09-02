@@ -8,6 +8,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 # direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 # text = input("Type your message:\n").lower()
 # shift = int(input("Type the shift number:\n"))
+direction ='encode'
 text = 'Hello World!'.lower()
 shift = 9
 
@@ -25,7 +26,7 @@ def encrypt(message, shift_number):
     shifted_alphabets = list(alphabet)
     cipher_text = ''
 
-    for _ in range(shift):
+    for _ in range(shift_number):
         shifted_alphabets.append(shifted_alphabets.pop(0))  # remove element from the front and add it to the back
 
         ############# decrypt ############
@@ -67,6 +68,36 @@ def encrypt(message, shift_number):
     ##HINT: How do you get the index of an item in a list:
     #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
 
+def decrypt(plain_text, shift_amount):
+    shifted_alphabets = list(alphabet)
+    decipher_text = ''
 
+    for _ in range(shift_amount):
+        shifted_alphabets.insert(0,(shifted_alphabets.pop())) # remove last element and add it to the front / for decryption
+
+    for char in plain_text:
+        if char in alphabet:
+            position = alphabet.index(char) # .index() give the first occurance
+            decipher_text += shifted_alphabets[position]
+            # message_index.append(alphabet.index(char)) #for debugging
+        else:
+            decipher_text += char
+    
+    print(decipher_text)
+    
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
-encrypt(text,shift)
+
+
+if direction == 'encode':
+    encrypt(text,shift)
+else:
+    decrypt(text,shift)
+
+direction ='decode'
+text = 'qnuux fxaum!'.lower()
+shift = 9
+
+if direction == 'encode':
+    encrypt(text,shift)
+else:
+    decrypt(text,shift)
