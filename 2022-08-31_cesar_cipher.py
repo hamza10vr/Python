@@ -4,9 +4,6 @@
 
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-# direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-# text = input("Type your message:\n").lower()
-# shift = int(input("Type the shift number:\n"))
 
 
 def caesar(start_txt,shift_amount,cipher_direction):
@@ -46,3 +43,14 @@ text = 'qnuux fxaum!'.lower()
 shift = 9
 
 caesar(text, shift, direction)
+
+#####################################################
+continue_game = True
+while continue_game:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    caesar(text, shift, direction)
+    user_input = (input("Type 'yes' if you want to go again, Otherwise type 'no': \n")).lower()
+    if user_input == 'no':
+        continue_game = False
