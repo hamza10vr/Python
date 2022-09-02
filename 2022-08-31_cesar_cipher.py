@@ -4,38 +4,27 @@
 
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
 # direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 # text = input("Type your message:\n").lower()
 # shift = int(input("Type the shift number:\n"))
-direction ='encode'
-text = 'Hello World!'.lower()
-shift = 9
 
 
-def encrypt(message, shift_number):
-    
-    #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
-    #e.g. 
-    #plain_text = "hello"
-    #shift = 5
-    #cipher_text = "mjqqt"
-    #print output: "The encoded text is mjqqt"
-
-############################ METHOD 1 #######################################
+def caesar(start_txt,shift_amount,cipher_direction):
     shifted_alphabets = list(alphabet)
     cipher_text = ''
-
-    for _ in range(shift_number):
-        shifted_alphabets.append(shifted_alphabets.pop(0))  # remove element from the front and add it to the back
-
-        ############# decrypt ############
-        # shifted_alphabets.insert(0,(shifted_alphabets.pop())) # remove last element and add it to the front / for decryption
-
+    
+    if cipher_direction == 'encode':
+        for _ in range(shift_amount):
+            shifted_alphabets.append(shifted_alphabets.pop(0))  # remove element from the front and add it to the back
+    elif cipher_direction == 'decode': 
+        for _ in range(shift_amount):
+            shifted_alphabets.insert(0,(shifted_alphabets.pop())) # remove last element and add it to the front / for decryption
+    
     # print(shifted_alphabets) #for debugging
     # message_index = [] 
 
-    for char in message:
+
+    for char in start_txt:
         if char in alphabet:
             position = alphabet.index(char) # .index() give the first occurance
             cipher_text += shifted_alphabets[position]
@@ -43,61 +32,17 @@ def encrypt(message, shift_number):
         else:
             cipher_text += char
 
-    # print(message_index)  # for debugging 
-###############################  METHOD 2    ####################################################
-    # cipher_text = ''
-
-    # alphabet_length = len(alphabet)
-    # for char in message:
-    #     if char in alphabet:
-    #         position = alphabet.index(char)  # .index() give the first occurance
-    #         new_position = position + shift_number
-    #         print(new_position)
-    #         # cipher_text += shifted_alphabets[position]
-    #         if new_position >= alphabet_length:
-    #             new_position = (alphabet_length-new_position)
-    #             cipher_text += alphabet[new_position]
-    #         else:
-    #              cipher_text += alphabet[new_position]
-    #     else:
-    #         cipher_text += char
-
-    # # print(message_index)  # for debugging 
-######################################################################################    
     print(cipher_text)
-    ##HINT: How do you get the index of an item in a list:
-    #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
-
-def decrypt(plain_text, shift_amount):
-    shifted_alphabets = list(alphabet)
-    decipher_text = ''
-
-    for _ in range(shift_amount):
-        shifted_alphabets.insert(0,(shifted_alphabets.pop())) # remove last element and add it to the front / for decryption
-
-    for char in plain_text:
-        if char in alphabet:
-            position = alphabet.index(char) # .index() give the first occurance
-            decipher_text += shifted_alphabets[position]
-            # message_index.append(alphabet.index(char)) #for debugging
-        else:
-            decipher_text += char
-    
-    print(decipher_text)
-    
-#TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
 
 
-if direction == 'encode':
-    encrypt(text,shift)
-else:
-    decrypt(text,shift)
+############ for debugging ##### auto input  ########
+direction ='encode'
+text = 'Hello World!'.lower()
+shift = 9
+caesar(text, shift, direction)
 
 direction ='decode'
 text = 'qnuux fxaum!'.lower()
 shift = 9
 
-if direction == 'encode':
-    encrypt(text,shift)
-else:
-    decrypt(text,shift)
+caesar(text, shift, direction)
