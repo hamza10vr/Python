@@ -10,3 +10,11 @@ aaa.txt
 #git branch has all the changes
 #git push -u origin master 
 #git push -u origin new_branch
+
+
+# git reset --hard <commit>
+# git push -f origin master or branchname
+
+#git rm filename
+#git commit
+#git push
