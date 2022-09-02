@@ -32,17 +32,18 @@ while not stop_bidding:
     sleep(1)
     os.system('cls')
 
-print(bidding_enteries)
+# print(bidding_enteries) // for debugging
 
-max_bid = 0
-winner_name = ''
 
-for key in bidding_enteries:
-    if bidding_enteries[key] > max_bid:
-        max_bid = bidding_enteries[key]
-        winner_name = key
-print()
+def find_highest_bidder(bidding_record):
+    winner_name = ''
+    max_bid = 0
+    for bidder in bidding_enteries:
+        if bidding_enteries[bidder] > max_bid:
+            max_bid = bidding_enteries[bidder]
+            winner_name = bidder
+    print(f"The winner is {winner_name} with a bid of ${max_bid}.\n")
 
 sleep(1)
 os.system('cls')
-print(f"The winner is {winner_name} with a bid of ${bidding_enteries[winner_name]}.")
+find_highest_bidder(bidding_enteries)
