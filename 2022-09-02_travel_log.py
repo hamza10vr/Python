@@ -12,17 +12,29 @@ travel_log = [
 ]
 #🚨 Do NOT change the code above
 
-def add_new_country(new_country, num_of_visits, visited_cities):
+
+
+
+def add_new_country(country_visited, num_of_visits, visited_cities):
     new_entry = {
-        'country': new_country, 
+        'country': country_visited, 
         'visits': num_of_visits, 
         'cities': visited_cities
     }
-    c = ''
+    ############ METHOD 2 ###############
+    new_country = {}
+    new_country['country'] = country_visited
+    new_country['visits'] = num_of_visits
+    new_country['cities'] = visited_cities
+    #######################################
+
     travel_log.append(new_entry)
-    print(f"You've visited {new_country} {num_of_visits} times.")
-    # cit = city for city in visited_cities
-    print(f"You've been to {[city for city in visited_cities]} ")
+    print(f"You've visited {country_visited} {num_of_visits} times.")
+
+    cities_visited = ''
+    for city in visited_cities:
+        cities_visited += city + ' and '
+    print(f"You've been to {cities_visited} ")
 
 
 #TODO: Write the function that will allow new countries
