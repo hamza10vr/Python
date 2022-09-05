@@ -27,19 +27,21 @@ operations = {
     }
 
 num1 = int(input("What's the first number?: "))
-num2 = int(input("what's the second number?; "))
 for symbol in operations:
     print(symbol)
 
-operation_symbol = input("Pick an operation from the line above: ")
-calculation_function = operations[operation_symbol]
-first_answer = calculation_function(num1, num2)
-print(f"{num1} {operation_symbol} {num2} = {first_answer}")
+continue_calculation = True
+while continue_calculation:
+    
+    operation_symbol = input("Pick an operation: ")
+    num2 = int(input("what's the next number?: "))
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num1, num2)
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+    yes_or_no = input(f"Type 'y' to continue calculating with {answer} or type 'n' to exit.: ")
+    if yes_or_no == 'y':
+        num1 = answer
+    else:
+        continue_calculation = False
 
 
-
-operation_symbol = input("Pick another operation: ")
-num3 = int(input("What's the next number?: "))
-calculation_function = operations[operation_symbol]
-second_answer = calculation_function(first_answer, num3)
-print(f"{first_answer} {operation_symbol} {num2} = {second_answer}")
