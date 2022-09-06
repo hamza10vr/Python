@@ -25,19 +25,25 @@ for _ in range(2):
 stand = False
 while not stand:
       print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
-      print(f"Your cards: {computer_cards}, current score: {sum(computer_cards)}")
+      print(f"Computer's cards: {computer_cards}, current score: {sum(computer_cards)}")
       print(f"Computer's first card: {computer_cards[0]}")
       if input(f"Type 'y' to get another card, type 'n' to pass: ") =='y':
             user_cards.append(deal_card())
             if sum(user_cards) >21:
-                  print(sum(computer_cards))
+                  print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}")
+                  print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}")  
+                  print("You went over, You BUST, you lose")
+                  stand = True
       else:
+           stand = True
            print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}") 
            print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}") 
-           if sum(user_cards) > sum(computer_cards):
+           if sum(user_cards) > 21 :
                   print("You went over, You BUST")
+           elif sum(user_cards) > sum(computer_cards):
+                  print("You WON")
            elif sum(user_cards) < sum(computer_cards): 
-                 print("You went over, You BUST")
+                 print("your total is low and you loose")
            else:
                  print("it's a DRAW")
 
