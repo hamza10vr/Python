@@ -14,7 +14,15 @@ def deal_card():
       """ returns the random card from the deck """
       cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
       return random.choice(cards)
-
+def calculate_score(list_of_cards):
+      if sum(list_of_cards) == 21:
+            return 0
+      elif sum(list_of_cards) > 21 and 11 in list_of_cards:
+            list_of_cards.remove(11)
+            list_of_cards.append(1)
+            return sum(list_of_cards)
+      else:
+            return sum(list_of_cards)
 def play_blackjack():
       user_cards =[]
       computer_cards = []
@@ -22,7 +30,9 @@ def play_blackjack():
       for _ in range(2):
             user_cards.append(deal_card())
             computer_cards.append(deal_card())
-
+      user_cards =[11,11]
+      if calculate_score(user_cards) == 0 or calculate_score(user_cards) > 21 or calculate_score(computer_cards) == 0 or calculate_score(computer_cards) >21:
+            print("Game ENDS")
 
       end_deal = False
       while not end_deal:
