@@ -23,6 +23,27 @@ def calculate_score(list_of_cards):
             return sum(list_of_cards)
       else:
             return sum(list_of_cards)
+
+def compare(user, computer):
+      user_score = calculate_score(user)
+      computer_score = calculate_score(computer)
+
+      if user_score == computer_score:
+            print("it's a DRAW")
+      elif user_score == 0:
+            print("BLACKJACK... YOU WIN")
+      elif computer_score == 0:            
+            print("BLACKJACK for computer... YOU Loose")
+      elif user_score > 21: 
+            print("you lose BUST")
+      elif computer_score > 21:            
+            print("Computer Lose, Bust, you win")
+      elif user_score > computer_score: 
+            print("You WIN")
+      else:
+            print("your total is low and you LOSE")
+
+
 def play_blackjack():
       user_cards =[]
       computer_cards = []
@@ -31,7 +52,9 @@ def play_blackjack():
             user_cards.append(deal_card())
             computer_cards.append(deal_card())
       user_cards =[11,11]
-      if calculate_score(user_cards) == 0 or calculate_score(user_cards) > 21 or calculate_score(computer_cards) == 0 or calculate_score(computer_cards) >21:
+      user_score = calculate_score(user_cards)
+      computer_score = calculate_score(computer_cards)
+      if user_score == 0 or user_score > 21 or computer_score == 0 or computer_score >21:
             print("Game ENDS")
 
       end_deal = False
