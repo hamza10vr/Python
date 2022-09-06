@@ -15,38 +15,44 @@ def deal_card():
       cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
       return random.choice(cards)
 
-user_cards =[]
-computer_cards = []
+def play_blackjack():
+      user_cards =[]
+      computer_cards = []
 
-for _ in range(2):
-      user_cards.append(deal_card())
-      computer_cards.append(deal_card())
-
-stand = False
-while not stand:
-      print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
-      print(f"Computer's cards: {computer_cards}, current score: {sum(computer_cards)}")
-      print(f"Computer's first card: {computer_cards[0]}")
-      if input(f"Type 'y' to get another card, type 'n' to pass: ") =='y':
+      for _ in range(2):
             user_cards.append(deal_card())
-            if sum(user_cards) >21:
-                  print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}")
-                  print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}")  
-                  print("You went over, You BUST, you lose")
-                  stand = True
-      else:
-           stand = True
-           print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}") 
-           print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}") 
-           if sum(user_cards) > 21 :
-                  print("You went over, You BUST")
-           elif sum(user_cards) > sum(computer_cards):
-                  print("You WON")
-           elif sum(user_cards) < sum(computer_cards): 
-                 print("your total is low and you loose")
-           else:
-                 print("it's a DRAW")
+            computer_cards.append(deal_card())
 
+
+      end_deal = False
+      while not end_deal:
+            print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
+            print(f"Computer's cards: {computer_cards}, current score: {sum(computer_cards)}")
+            print(f"Computer's first card: {computer_cards[0]}")
+            if input(f"Type 'y' to get another card, type 'n' to pass: ") =='y':
+                  user_cards.append(deal_card())
+                  if sum(user_cards) >21:
+                        print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}")
+                        print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}")  
+                        print("You went over, You BUST, you lose")
+                        end_deal = True
+            else:
+                  end_deal = True
+                  print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}") 
+                  print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}") 
+                  if sum(user_cards) > 21 :
+                              print("You went over, You BUST")
+                  elif sum(user_cards) > sum(computer_cards):
+                              print("You WON")
+                  elif sum(user_cards) < sum(computer_cards): 
+                        print("your total is low and you loose")
+                  else:
+                        print("it's a DRAW")
+      
+      if input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") =='y':
+            play_blackjack()
+
+play_blackjack()
 
 
 
