@@ -22,15 +22,24 @@ for _ in range(2):
       user_cards.append(deal_card())
       computer_cards.append(deal_card())
 
-
-print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
-print(f"Your cards: {computer_cards}, current score: {sum(computer_cards)}")
-print(f"Computer's first card: {computer_cards[0]}")
-if input(f"Type 'y' to get another card, type 'n' to pass: ") =='y':
-      user_cards.append(deal_card())
-      if sum(user_cards) >21:
-            print(sum(computer_cards))
-
+stand = False
+while not stand:
+      print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
+      print(f"Your cards: {computer_cards}, current score: {sum(computer_cards)}")
+      print(f"Computer's first card: {computer_cards[0]}")
+      if input(f"Type 'y' to get another card, type 'n' to pass: ") =='y':
+            user_cards.append(deal_card())
+            if sum(user_cards) >21:
+                  print(sum(computer_cards))
+      else:
+           print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}") 
+           print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}") 
+           if sum(user_cards) > sum(computer_cards):
+                  print("You went over, You BUST")
+           elif sum(user_cards) < sum(computer_cards): 
+                 print("You went over, You BUST")
+           else:
+                 print("it's a DRAW")
 
 
 
