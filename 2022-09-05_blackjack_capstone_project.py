@@ -26,7 +26,7 @@ def play_blackjack():
 
       end_deal = False
       while not end_deal:
-            print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
+            print(f"\nYour cards: {user_cards}, current score: {sum(user_cards)}")
             print(f"Computer's cards: {computer_cards}, current score: {sum(computer_cards)}")
             print(f"Computer's first card: {computer_cards[0]}")
             if input(f"Type 'y' to get another card, type 'n' to pass: ") =='y':
@@ -41,11 +41,11 @@ def play_blackjack():
                   print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}") 
                   print(f"Computer's' final hand: {computer_cards}, final score: {sum(computer_cards)}") 
                   if sum(user_cards) > 21 :
-                              print("You went over, You BUST")
+                        print("You went over, You BUST")
                   elif sum(user_cards) > sum(computer_cards):
-                              print("You WON")
+                        print("You WIN")
                   elif sum(user_cards) < sum(computer_cards): 
-                        print("your total is low and you loose")
+                        print("your total is low and you LOSE")
                   else:
                         print("it's a DRAW")
       
