@@ -42,8 +42,24 @@ def compare(user, computer):
             print("You WIN")
       else:
             print("your total is low and you LOSE")
+user_hand = []
+computer_hand = []
 
+for _ in range(2):
+      user_hand.append(deal_card())
+      computer_hand.append(deal_card())
 
+user_score = calculate_score(user_hand)
+computer_score = calculate_score(computer_hand)
+compare(user_hand,computer_hand)
+
+game_ended = False
+if input(f"Type 'y' to get another card, type 'n' to pass: ") =='y':
+      user_hand.append(deal_card())
+      user_score = calculate_score(user_hand)
+      print(f"{user_hand} and {user_score}")
+      print(f"\nYour cards: {user_hand}, current score: {sum(user_hand)}")
+            # print(f"Computer's cards: {computer_cards}, current score: {sum(computer_cards)}")
 def play_blackjack():
       user_cards =[]
       computer_cards = []
