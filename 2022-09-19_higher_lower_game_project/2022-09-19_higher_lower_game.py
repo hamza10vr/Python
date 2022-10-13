@@ -9,8 +9,11 @@
 
 # TODO: list
 #logo
+import art
+print(art.logo)
 #compare A: name, a description, from country
 #logo vs
+print(art.vs)
 #Against B: name, a description, from country
 #who has more followers? Type 'A' or 'B': 
 
