@@ -63,7 +63,6 @@ def calculator():
         elif options == 'n':
             continue_calculation = False
 
-#TODO - how to end recursion       
 
 calculator()
 
