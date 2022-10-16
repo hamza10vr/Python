@@ -22,14 +22,16 @@ def check_answer(guess, a_followers, b_followers):
 print(logo)
 score = 0
 game_should_continue = True
+account_b = random.choice(data)
 
-
+# Make the game repeatable.
 while game_should_continue == True:
 
     # Generate a random account from the game data
-    account_a = random.choice(data)
+    # Making th account at position B become the next account at position A
+    account_a = account_b
     account_b = random.choice(data)
-    if account_a == account_b:
+    while account_a == account_b:
         account_b = random.choice(data)
 
     print(f"Compare A: {format_data(account_a)}.")
@@ -53,9 +55,3 @@ while game_should_continue == True:
     else:
             print(f"Sorry , that's wrong . Final score: {score}")
             game_should_continue = False
-
-# Make the game repeatable.
-
-# Making th account at position B become the next account at position A
-
-# Clear the screen between rounds
