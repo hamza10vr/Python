@@ -1,24 +1,57 @@
-# Break down the Problem
-# games ends when you guess wrong and prints your score
-# randomly picks 2 celebrities compare A against B
-# clears screen at each  answer and updates the score
-# winner becomes A and pops a new B
-# prints final answer when you are wrong
-# Sorry, that's wrong. Final score: 3
 
+from art import logo, vs
+from game_data import data
+import random
 
-# TODO: list
-#logo
-import art
-print(art.logo)
-#compare A: name, a description, from country
-#logo vs
-print(art.vs)
-#Against B: name, a description, from country
-#who has more followers? Type 'A' or 'B': 
+def format_data(account):
+    """Takes the account data returns the printable format."""
+    account_name = account["name"]
+    account_descr = account["description"]
+    account_country = account["country"]
+    return (f"{account_name}, a {account_descr}, from {account_country}")
 
-#clears screen. 
-#You're right! Current score: 1
-# print everything again
+# check if user is correct. a
+def check_answer(guess, a_followers, b_followers):
+    """Take the user guess and follower counts and returns if they got it right"""
+    if a_followers > b_followers:
+        return guess == 'a'
+    else:
+        return guess =='b'
 
+# Display art
+print(logo)
+score = 0
+game_should_continue = True
+account_b = random.choice(data)
 
+# Make the game repeatable.
+while game_should_continue == True:
+
+    # Generate a random account from the game data
+    # Making th account at position B become the next account at position A
+    account_a = account_b
+    account_b = random.choice(data)
+    while account_a == account_b:
+        account_b = random.choice(data)
+
+    print(f"Compare A: {format_data(account_a)}.")
+    print(vs)
+    print(f"Against B: {format_data(account_b)}.")
+
+    # Ask user for a guess
+    guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+
+    ## get follower count of each account.
+    a_follower_count = account_a["follower_count"]
+    b_follower_count = account_b["follower_count"]
+    is_correct = check_answer(guess, a_follower_count, b_follower_count)
+
+    # give user feedback on their guess.
+    # score keeping.
+
+    if is_correct:
+        score += 1
+        print(f"You're right! Current score: {score}")
+    else:
+            print(f"Sorry , that's wrong . Final score: {score}")
+            game_should_continue = False
