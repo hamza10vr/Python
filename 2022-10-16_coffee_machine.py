@@ -30,3 +30,21 @@ resources = {
     "coffee": 100,
 }
 
+
+def report(resources):
+    """prints report of remaining resources"""
+    return f"Water: {resources['water']}\n" \
+           f"Milk: {resources['milk']}\n" \
+           f"Milk: {resources['coffee']}\n"
+
+
+# Initial prompt What would you like? (expresso/latte/cappuccino):
+coffee_type = input("What would you like? (espresso/latte/cappuccino):  ").lower()
+if coffee_type == 'report':
+    print(report(resources))
+
+# TODO: report - prints resources and money inserted
+
+# TODO: prompt to insert money quarters, dimes, nickles, pennies, here is your change, here is your expresso repeat,
+#  sorry not enough money and money refunded
+# TODO: if resources not enough, sorry, not enough water etc
