@@ -1,44 +1,26 @@
-# Break down the Problem
-# games ends when you guess wrong and prints your score
-# randomly picks 2 celebrities compare A against B
-# clears screen at each  answer and updates the score
-# winner becomes A and pops a new B
-# prints final answer when you are wrong
-# Sorry, that's wrong. Final score: 3
-from re import A
-import art
-import game_data
+
+from art import logo
+from game_data import data
 import random
 
-def compare_followers(dict_a, dict_b):
-    if dict_a > dict_b:
-        return dict_a
-    else:
-        return dict_b
-
-# TODO: list
-#logo
-print(art.logo)
-
-#compare A: name, a description, from country
-celebrity_a = random.choice(game_data.data)
-print(celebrity_a)
-
-#logo vs 
-print(art.vs)
-#Against B: name, a description, from country
-celebrity_b = random.choice(game_data.data)
-print(celebrity_b)
-#who has more followers? Type 'A' or 'B': 
-choice = input("Who has more followers? Type 'A' or 'B': ")
-correct_answer = compare_followers(celebrity_a,celebrity_b)
-
+def format_data(account):
+    """format the account data into printable format."""
+    account_name = account["name"]
+    account_descr = account["description"]
+    account_country = account["country"]
+    return (f"{account_name}, a {account_descr}, from {account_country}")
 
 # Display art
+print(logo)
 
 # Generate a random account from the game data
+account_a = random.choice(data)
+account_b = random.choice(data)
+if account_a == account_b:
+    account_b = random.choice(data)
 
-# format the account data into printable format.
+print(f"Compare A: {format_data(account_a)}.")
+print(f"Compare B: {format_data(account_b)}.")
 
 # Ask user for a guess
 
