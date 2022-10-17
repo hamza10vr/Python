@@ -55,6 +55,17 @@ def process_coins():
     total += int(input("How many nickles?: ")) * 0.05
     total += int(input("How many pennies?: ")) * 0.01
     return total
+def is_transaction_successful(money_received, drink_cost):
+    """Return True when the payment is accepted, or False if money is insufficient. """
+    if money_received >= drink_cost:
+        change = round(money_received - drink_cost, 2)
+        print(f"Here is {change} in change")
+        global profit
+        profit += drink_cost
+        return True
+    else:
+        print("Sorry, that's not enough money. Money refunded.")
+        return False
 
 is_on = True
 
@@ -62,18 +73,12 @@ while is_on:
     # Initial prompt What would you like? (expresso/latte/cappuccino):
     choice = input("What would you like? (espresso/latte/cappuccino):  ").lower()
     if choice == 'report':
-        print(generate_report(resources, profit))
+        print(generate_report(resources, payment))
     elif choice == 'off':
         is_on = False
     else:
         drink = MENU[choice]
         if check_resources(drink['ingredients']):
             payment = process_coins()
+            is_transaction_successful(payment, drink['cost'])
 
-
-
-# TODO: report - prints resources and money inserted
-
-# TODO: prompt to insert money quarters, dimes, nickles, pennies, here is your change, here is your expresso repeat,
-#  sorry not enough money and money refunded
-# TODO: if resources not enough, sorry, not enough water etc
