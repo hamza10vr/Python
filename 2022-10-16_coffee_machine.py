@@ -38,7 +38,7 @@ def generate_report(resources, money):
            f"Coffee: {resources['coffee']}\n" \
            f"Money: ${profit}\n"
 
-is_on = True
+
 
 def check_resources(order_ingredients):
     """Takes coffe input checks it against to resources to verify if enough ingredients"""
@@ -47,6 +47,16 @@ def check_resources(order_ingredients):
             print(f"Sorry there is Not enough {item}")
             return False
         return True
+def process_coins():
+    """Returns teh total calculated from coins inserted"""
+    print("Please insert coins.")
+    total = int(input("How many quarters?: ")) * 0.25
+    total += int(input("How many dimes?: ")) * 0.10
+    total += int(input("How many nickles?: ")) * 0.05
+    total += int(input("How many pennies?: ")) * 0.01
+    return total
+
+is_on = True
 
 while is_on:
     # Initial prompt What would you like? (expresso/latte/cappuccino):
@@ -57,10 +67,8 @@ while is_on:
         is_on = False
     else:
         drink = MENU[choice]
-        check_resources(drink['ingredients'])
-        # choice == 'espresso':
-        # check_resources(resources,choice)
-        # print("move ahead")
+        if check_resources(drink['ingredients']):
+            payment = process_coins()
 
 
 
