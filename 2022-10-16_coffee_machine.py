@@ -29,7 +29,8 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
-profit = 0
+
+
 
 def generate_report(resources, money):
     """prints report of remaining resources"""
@@ -39,7 +40,6 @@ def generate_report(resources, money):
            f"Money: ${profit}\n"
 
 
-
 def check_resources(order_ingredients):
     """Takes coffe input checks it against to resources to verify if enough ingredients"""
     for item in order_ingredients:
@@ -47,6 +47,8 @@ def check_resources(order_ingredients):
             print(f"Sorry there is Not enough {item}")
             return False
         return True
+
+
 def process_coins():
     """Returns teh total calculated from coins inserted"""
     print("Please insert coins.")
@@ -55,6 +57,8 @@ def process_coins():
     total += int(input("How many nickles?: ")) * 0.05
     total += int(input("How many pennies?: ")) * 0.01
     return total
+
+
 def is_transaction_successful(money_received, drink_cost):
     """Return True when the payment is accepted, or False if money is insufficient. """
     if money_received >= drink_cost:
@@ -67,7 +71,15 @@ def is_transaction_successful(money_received, drink_cost):
         print("Sorry, that's not enough money. Money refunded.")
         return False
 
+
+def make_coffee(drink_name, order_ingredients):
+    """Deduct the required ingredients from the resources"""
+    for item in order_ingredients:
+        resources[item] -= order_ingredients[item]
+    print(f"Here is your {drink_name}")
+
 is_on = True
+profit = 0
 
 while is_on:
     # Initial prompt What would you like? (expresso/latte/cappuccino):
@@ -80,5 +92,6 @@ while is_on:
         drink = MENU[choice]
         if check_resources(drink['ingredients']):
             payment = process_coins()
-            is_transaction_successful(payment, drink['cost'])
+            if is_transaction_successful(payment, drink['cost']):
+                make_coffee(choice, drink["ingredients"])
 
