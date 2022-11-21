@@ -19,14 +19,15 @@ t.colormode(255)
 screen = t.Screen()
 screen.setworldcoordinates(-1, -1, screen.window_width(), screen.window_height())
 tim = t.Turtle()
+tim.penup()
+tim.hideturtle()
+tim.speed("fastest")
 
 
 def paint_a_line(colors):
     for _ in range(10):
         color = random.choice(colors)
-        tim.pendown()
         tim.dot(20, color)
-        tim.penup()
         tim.fd(50)
 
 
