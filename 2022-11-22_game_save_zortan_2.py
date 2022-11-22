@@ -36,8 +36,9 @@ superheros: list[Character] = [IRONMAN, BLACKWIDOW, SPIDERMAN, HULK]
 supervillains: list[Character] = [THANOS, REDSKULL, PROXIMA]
 
 #Helper Variables
-choice: int = 0
-attack_number: int = 0
+hero_life: int = 0
+villain_life: int = 0
+
 WIN_MSG: Final[str] = "\n######  You successfully saved Zortan!!!  #####\n"
 LOST_MSG: Final[str] = "\n#####  Thanos killed Avengers and captured Zortan!!  #####\n"
 
@@ -49,5 +50,20 @@ for attack in range(3):
     # helper variables
     current_superhero = superheros[hero_index]
     current_supervillain = supervillains[villain_index]
+    #life
+    hero_life = hero_life + current_superhero['life']
+    villain_life +=  current_supervillain['life']
 
     print(f"Attack: {attack + 1} => {current_superhero['name']} is going to fight with {current_supervillain['name']} ")
+    #attack
+    hero_life = hero_life - current_supervillain['attack_power']
+    villain_life -= current_superhero['attack_power']
+
+#print(a nice seperating line)
+print("=" * 70)
+
+#Win or loose
+if hero_life >= villain_life:
+    print(WIN_MSG)
+else:
+    print(LOST_MSG)
