@@ -33,8 +33,6 @@ log.info(f"\n===================================================================
 # destination_folder = r'C:\Users\hamzat\Desktop\Project1-RenameFiles\RenamedFiles'
 
 ###### For DEV / DEMO Testing on ICT-SERVER ######
-# source_folder =r'\\ict-data\Shared\Certificate of Conformance\CoC-D365\Demo-Testing\ScannedFiles'
-# destination_folder = r"\\ict-data\shared\Certificate of Conformance\CoC-D365\Demo-Testing" 
 
 ##### for PROD environment #########
 source_folder =r"C:\Users\hamzat\Desktop\CoCParser-Project\dev\ScannedFiles"
